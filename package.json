@@ -46,6 +46,7 @@
 	},
 	"packageManager": "pnpm@10.26.0",
 	"dependencies": {
-		"orejime": "2.2.1"
+		"orejime": "2.2.1",
+		"prettier": "^2.8.8"
 	}
 }
