@@ -32,5 +32,6 @@ jobs:
         with:
           cache: true
           run_install: true
+          run_install.args: --prefer-frozen-lockfile
       - name: Do stuff!
         run: pnpm wrangler --version
