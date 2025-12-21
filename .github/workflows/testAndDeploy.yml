@@ -31,6 +31,7 @@ jobs:
         uses: pnpm/action-setup@0bc9da32cd356746083d9e2b8848bad8b974c72c
         with:
           cache: true
-          run_install: --prefer-frozen-lockfile
+          run_install: 
+            - --prefer-frozen-lockfile
       - name: Do stuff!
         run: pnpm wrangler --version
