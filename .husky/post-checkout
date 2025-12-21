@@ -1,0 +1,6 @@
+#git diff --name-only ORIG_HEAD HEAD | grep -q -e 'package.json' -e 'pnpm-lock.yaml' && pnpm install --prefer-offline --prefer-frozen-lockfile || true
+git diff --name-only $1 $2 | grep -q -e 'package.json' -e 'pnpm-lock.yaml' && pnpm install --prefer-offline --prefer-frozen-lockfile || true
+
+grep chokidar pnpm-lock.yaml | grep -q "4.0.3" || echo "Might not need pnpm trust setting for chokidar anymore?"
+grep semver pnpm-lock.yaml | grep -q "6.3.1" || echo "Might not need pnpm trust setting for semver anymore?"
+grep vite pnpm-lock.yaml | grep -q "6.4.1" || echo "Might not need pnpm trust setting for vite anymore?"

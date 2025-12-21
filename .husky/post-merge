@@ -1,0 +1,1 @@
+git diff --name-only ORIG_HEAD HEAD | grep -q -e 'package.json' -e 'pnpm-lock.yaml' && pnpm install --prefer-offline --prefer-frozen-lockfile || true

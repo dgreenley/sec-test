@@ -1,0 +1,99 @@
+queue_rules:
+  - name: Mergify
+    queue_conditions:
+      - and:
+          - author = renovate[bot]
+          - "#check-failure = 0"
+          - -conflict
+          - -closed
+          - or:
+              - and:
+                  - created-at < 2 days ago
+                  - -label ~= delay-reuse
+              - and:
+                  - label ~= vulnerability
+                  - created-at < 12 hours ago
+                  - title ~= (?i)\[SECURITY\] #ignore case
+    checks_timeout: 10 m
+    autoqueue: true
+priority_rules:
+  - name: Vulnerabilities
+    priority: high
+    conditions:
+      - and:
+          - label ~= vulnerability
+          - title ~= (?i)\[SECURITY\] #ignore case
+    allow_checks_interruption: true
+pull_request_rules:
+  - name: Weekly rebase and clear any delayed-reuse
+    conditions:
+      - schedule = Mon-Mon 07:00-07:15[US/Central]
+      - author = renovate[bot]
+      - -closed
+    actions:
+      label:
+        remove:
+          - delay-reuse
+        add:
+          - rerun-tests
+          - rebase
+  - name: If failing, rerun tests daily #, or every 6 hours for vulnerabilities
+    conditions:
+      - "#check-failure > 0"
+      - author = renovate[bot]
+      - -label ~= rerun-tests
+      - -closed
+      - schedule = 08:00-08:15[US/Central]
+#      - or:
+#          - schedule = 08:00-08:15[US/Central]
+#          - and:
+#              - label ~= vulnerability
+#              - title ~= (?i)\[SECURITY\] #ignore case
+#              - or:
+#                  - schedule = 02:00-02:15[US/Central]
+#                  - schedule = 08:00-08:15[US/Central]
+#                  - schedule = 14:00-14:15[US/Central]
+#                  - schedule = 20:00-20:15[US/Central]
+    actions:
+      label:
+        add:
+          - rerun-tests
+          - rebase
+  - name: Remove rebase 'locking' label
+    conditions:
+      - label ~= rerun-tests
+      - schedule = 08:15-08:30[US/Central]
+#      - or:
+#          - schedule = 02:15-02:30[US/Central]
+#          - schedule = 08:15-08:30[US/Central]
+#          - schedule = 14:15-14:30[US/Central]
+#          - schedule = 20:15-20:30[US/Central]
+    actions:
+      label:
+        remove:
+          - rerun-tests
+  - name: Delay merges for reused PRs
+    conditions:
+      - -label ~= delay-reuse
+      - closed
+    actions:
+      label:
+        add:
+          - delay-reuse
+  - name: Requeue
+    conditions:
+      - label ~= dequeued
+      - queue-dequeue-reason != none
+      - queue-dequeue-reason != pr-merged
+      - queued-at < 6 hours ago
+      - -closed
+    actions:
+      label:
+        remove:
+          - dequeued
+          - delay-reuse
+        add:
+          - rebase
+          - rerun-tests
+merge_queue:
+  max_parallel_checks: 1
