@@ -23,13 +23,13 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           persist-credentials: false
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4
       - name: Set up Node.js
-        uses: actions/setup-node@v6.1.0
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
         with:
           node-version: 24
           package-manager-cache: false
@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
-      - uses: actions/cache/restore@v5
+      - uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5
         name: Restore pnpm cache
         id: cache-restore
         with:
@@ -55,7 +55,7 @@ jobs:
         run: pnpm store prune
       - name: Save cache on default branch
         if: always() && github.ref_name == github.event.repository.default_branch && steps.cache-restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@9255dc7a253b0ccc959486e2bca901246202afeb # v5
         with:
           path: ${{ steps.cache-config.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-cache-${{ hashFiles('**/pnpm-lock.yaml') }}
