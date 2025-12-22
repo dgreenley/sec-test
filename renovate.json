@@ -16,6 +16,7 @@
 	"minimumReleaseAge": "5 days",
 	"osvVulnerabilityAlerts": true,
 	"vulnerabilityAlerts": { "automerge": true },
+	"lockFileMaintenance": { "automerge": true },
 	"packageRules": [
 		{
 			"description": "Tailwindcss: Stay on v3 with an abandomentThreshold of 2 years to allow for this.",
