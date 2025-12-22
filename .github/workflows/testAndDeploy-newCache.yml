@@ -6,8 +6,6 @@ on:
     branches-ignore:
       - "dependabot/**" # avoid duplicates: only run the PR, not the push
       - "renovate/**" # avoid duplicates: only run the PR, not the push
-      - "tmp-mergify/**" # avoid duplicates: only run the PR, not the push
-      - "mergidy/**" # avoid duplicates: only run the PR, not the push
   pull_request:
     types: [opened, reopened, synchronize]
   merge_group: {}
