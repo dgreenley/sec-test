@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 24
       - name: Install pnpm
-        uses: pnpm/action-setup@0bc9da32cd356746083d9e2b8848bad8b974c72c
+        uses: pnpm/action-setup@e94b270858c939f4f8b43f5c1438fa1d9a67ad5d
         with:
           cache: true
           run_install: |
