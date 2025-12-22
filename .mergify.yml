@@ -27,7 +27,7 @@ priority_rules:
 pull_request_rules:
   - name: Weekly rebase and clear any delayed-reuse
     conditions:
-      - schedule = Mon-Mon 07:00-07:15[US/Central]
+      - schedule = Mon-Mon 07:45-08:00[US/Central]
       - author = renovate[bot]
       - -closed
     actions:
@@ -37,23 +37,13 @@ pull_request_rules:
         add:
           - rerun-tests
           - rebase
-  - name: If failing, rerun tests daily #, or every 6 hours for vulnerabilities
+  - name: If failing, rerun tests daily
     conditions:
       - "#check-failure > 0"
       - author = renovate[bot]
       - -label ~= rerun-tests
       - -closed
       - schedule = 08:00-08:15[US/Central]
-#      - or:
-#          - schedule = 08:00-08:15[US/Central]
-#          - and:
-#              - label ~= vulnerability
-#              - title ~= (?i)\[SECURITY\] #ignore case
-#              - or:
-#                  - schedule = 02:00-02:15[US/Central]
-#                  - schedule = 08:00-08:15[US/Central]
-#                  - schedule = 14:00-14:15[US/Central]
-#                  - schedule = 20:00-20:15[US/Central]
     actions:
       label:
         add:
@@ -63,11 +53,6 @@ pull_request_rules:
     conditions:
       - label ~= rerun-tests
       - schedule = 08:15-08:30[US/Central]
-#      - or:
-#          - schedule = 02:15-02:30[US/Central]
-#          - schedule = 08:15-08:30[US/Central]
-#          - schedule = 14:15-14:30[US/Central]
-#          - schedule = 20:15-20:30[US/Central]
     actions:
       label:
         remove:
