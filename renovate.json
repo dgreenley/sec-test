@@ -12,8 +12,6 @@
 		":maintainLockFilesWeekly",
 		"mergeConfidence:all-badges"
 	],
-	"prCreation": "immediate",
-	"minimumReleaseAge": "5 days",
 	"osvVulnerabilityAlerts": true,
 	"vulnerabilityAlerts": { "automerge": true },
 	"lockFileMaintenance": { "automerge": true },
