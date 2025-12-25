@@ -12,8 +12,8 @@ importers:
         specifier: 1.9.1
         version: 1.9.1
       '@fedify/fedify':
-        specifier: 1.9.1
-        version: 1.9.1(web-streams-polyfill@3.3.3)
+        specifier: 1.9.2
+        version: 1.9.2(web-streams-polyfill@3.3.3)
       orejime:
         specifier: 2.3.2
         version: 2.3.2(react-dom@16.14.0(react@16.14.0))(react@16.14.0)
@@ -1458,8 +1458,8 @@ packages:
     os: [darwin, linux, win32]
     hasBin: true
 
-  '@fedify/fedify@1.9.1':
-    resolution: {integrity: sha512-MvR8E4hQGxkWPOhQfQeGVPPPJ3jC+crIin7WOA4O6HjAk1rPT8H/9rALuMEhoyDbly3xKVBi11Qo9XLHHGiUiA==}
+  '@fedify/fedify@1.9.2':
+    resolution: {integrity: sha512-+v6XuhrwRwYeYQDSLnpuo70TydjzprqufMa1A5zEy1kQVe2sFJgZXpMjpu1zY2wfjb2nCVzBSZ4K6VEEkIq9Rw==}
     engines: {bun: '>=1.1.0', deno: '>=2.0.0', node: '>=22.0.0'}
 
   '@humanfs/core@0.19.1':
@@ -4738,6 +4738,7 @@ packages:
   wrangler@4.56.0:
     resolution: {integrity: sha512-Nqi8duQeRbA+31QrD6QlWHW3IZVnuuRxMy7DEg46deUzywivmaRV/euBN5KKXDPtA24VyhYsK7I0tkb7P5DM2w==}
     engines: {node: '>=20.0.0'}
+    deprecated: Version 4.55.0 and 4.56.0 can incorrectly automatically delegate 'wrangler deploy' to 'opennextjs-cloudflare'. Use an older or newer version.
     hasBin: true
     peerDependencies:
       '@cloudflare/workers-types': ^4.20251217.0
@@ -6247,7 +6248,7 @@ snapshots:
 
   '@fedify/cli@1.9.1': {}
 
-  '@fedify/fedify@1.9.1(web-streams-polyfill@3.3.3)':
+  '@fedify/fedify@1.9.2(web-streams-polyfill@3.3.3)':
     dependencies:
       '@cfworker/json-schema': 4.1.1
       '@js-temporal/polyfill': 0.5.1
