@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@fedify/cli':
-        specifier: 1.9.1
-        version: 1.9.1
+        specifier: 1.9.2
+        version: 1.9.2
       '@fedify/fedify':
         specifier: 1.9.2
         version: 1.9.2(web-streams-polyfill@3.3.3)
@@ -1451,8 +1451,8 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@fedify/cli@1.9.1':
-    resolution: {integrity: sha512-Vj3EF6U1rGEfMcM0VK4p8981KebjPTh1Yw81qjRO4Zc4qvROdQL/sXZ1UU21opSFHLFJ4khHTTRK2cYOkkyreg==}
+  '@fedify/cli@1.9.2':
+    resolution: {integrity: sha512-FxoivcV75KIHC6bGkQ5QSYUhOxHZ/l60gb0iqHHroGixzpZLFUXFKzKAwzyiUD+TPu0wW+brCAKjaOCtj465MQ==}
     engines: {node: '>=18.0.0'}
     cpu: [x64, arm64]
     os: [darwin, linux, win32]
@@ -6246,7 +6246,7 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@fedify/cli@1.9.1': {}
+  '@fedify/cli@1.9.2': {}
 
   '@fedify/fedify@1.9.2(web-streams-polyfill@3.3.3)':
     dependencies:
