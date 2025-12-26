@@ -44,7 +44,7 @@
 			"biome check --no-errors-on-unmatched"
 		]
 	},
-	"packageManager": "pnpm@10.26.1",
+	"packageManager": "pnpm@10.26.2",
 	"dependencies": {
 		"@fedify/cli": "1.9.2",
 		"@fedify/fedify": "1.9.2",
